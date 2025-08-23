@@ -1,8 +1,7 @@
 # New Project (MCP-enabled)
 
 ## Setup
-1. Copy `.env.example` → `.env` and edit values.
-2. Start MCP servers: `make mcp-up`.
-3. Stop MCP servers: `make mcp-down`.
-4. In Cursor, start chat with: MCP Setup & Usage Prompt
 
+1. Create a new repo from this template on GitHub.  
+2. Open Cursor → **clone the repo** into your workspace.  
+3. In Cursor, start chat with:  
