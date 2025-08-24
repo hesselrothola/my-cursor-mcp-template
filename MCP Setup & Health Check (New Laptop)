@@ -1,0 +1,52 @@
+ROLE  
+You are running inside Cursor with terminal + filesystem access.  
+Your job: check if all required MCP servers + Playwright are installed, install if missing, and verify they work.  
+
+REQUIRED MCP TOOLS  
+- Context7 MCP → `context7-mcp`  
+- Postgres MCP → `@modelcontextprotocol/server-postgres`  
+- SQLite MCP → `mcp-sqlite`  
+- OpenAPI MCP → `mcp-openapi-server`  
+- Playwright MCP → `npx @playwright/mcp@latest`  
+- Playwright runtime (CLI + browsers) → `npx playwright install`  
+
+STEPS  
+
+1. **Check installation**  
+   - Run `command -v context7-mcp || echo "missing: context7-mcp"`  
+   - Run `npx -y @playwright/mcp@latest --help || echo "missing: @playwright/mcp"`  
+   - Run `npx -y playwright --version || echo "missing: playwright-cli"`  
+   - Run `command -v @modelcontextprotocol/server-postgres || echo "missing: postgres-mcp"`  
+   - Run `command -v mcp-sqlite || echo "missing: mcp-sqlite"`  
+   - Run `command -v mcp-openapi-server || echo "missing: mcp-openapi-server"`  
+
+2. **Install if missing**  
+   - Postgres MCP:  
+     ```bash
+     npm install -g @modelcontextprotocol/server-postgres
+     ```  
+   - SQLite MCP:  
+     ```bash
+     git clone https://github.com/jparkerweb/mcp-sqlite ~/.mcp/mcp-sqlite || true
+     cd ~/.mcp/mcp-sqlite && npm install && npm link
+     ```  
+   - OpenAPI MCP:  
+     ```bash
+     git clone https://github.com/ivo-toby/mcp-openapi-server ~/.mcp/mcp-openapi-server || true
+     cd ~/.mcp/mcp-openapi-server && npm install && npm link
+     ```  
+   - Playwright runtime:  
+     ```bash
+     npx -y playwright install --with-deps
+     ```  
+
+3. **Health check** (using ports from `.env`, or defaults)  
+   - `@postgres query: SELECT 1;`  
+   - `@sqlite query: SELECT 1;`  
+   - `@openapi list_operations`  
+   - `@playwright version`  
+   - Trigger `@context7` by asking for a trivial refactor.  
+
+4. **Output**  
+   - Checklist: Installed / Installed now / Missing for each tool.  
+   - ✅ “All MCPs installed and healthy” OR ❌ “Setup incomplete — see FIX instructions”.  
