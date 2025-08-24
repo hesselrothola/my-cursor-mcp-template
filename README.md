@@ -37,8 +37,10 @@ That’s it — after this, you’re ready to build 🚀
 
 ## MCP Reference
 
-- **Context7 MCP** → Injects project rules and style guides from `.context/claude.md`.  
-- **Postgres MCP** → Lets Cursor run read-only queries against a Postgres database.  
-- **SQLite MCP** → Same as Postgres MCP, but for local SQLite databases.  
-- **OpenAPI MCP** → Lets Cursor call external APIs from an OpenAPI specification.  
-- **Playwright MCP** → Enables Cursor to run end-to-end browser tests and automate UIs. 
+- **Context7 MCP** — Pulls up-to-date, version-specific documentation and code examples straight from the source, and places them directly into your prompt.  
+- **Postgres MCP** — Lets Cursor query your Postgres database (read-only by default).  
+- **SQLite MCP** — Lets Cursor query a local SQLite database file.  
+- **OpenAPI MCP** — Lets Cursor call APIs defined by an OpenAPI spec.  
+- **Playwright MCP** — Enables end-to-end browser tests and UI automation.  
+
+
