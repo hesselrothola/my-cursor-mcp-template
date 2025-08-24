@@ -1,4 +1,4 @@
-# New Project (MCP-enabled)
+# New Cursor and Claude Code Project (MCP-enabled)
 
 ## Setup
 
